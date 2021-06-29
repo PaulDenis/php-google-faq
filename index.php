@@ -22,8 +22,10 @@
         [
             'question' => 'Why is my account associated with a country?',
             'answer' => [
-                'Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things' => [
-                        'The Google affiliate that provides the services, that processes your information, and that is responsible for complying with applicable privacy laws. Generally, Google offers its consumer services through either of two companies:' => [
+                'Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things',
+                [
+                        'The Google affiliate that provides the services, that processes your information, and that is responsible for complying with applicable privacy laws. Generally, Google offers its consumer services through either of two companies:',
+                        [
                         'Google Ireland Limited, if you’re located in the European Economic Area (EU countries plus Iceland, Liechtenstein, and Norway) or Switzerland',
                         'Google LLC, based in the United States, for the rest of the world'
                         ],
@@ -53,6 +55,53 @@
             ]
         ]
     ]; 
-     
-     
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <h1>Google FAQ</h1>
+        </header>
+
+        <main>
+            <?php foreach ($faq as $item) {
+                # code...
+            ;?>
+            <h2>
+            <?php
+                echo $item['question'];
+            ; ?>
+            </h2>
+                <?php foreach ($item['answer'] as $key => $answer) {
+                    # code...
+                    echo '<li>';
+                    echo '<ol>';
+                    foreach ($answer as $value) {
+                        # code...
+                        echo '<li>' . $value;
+                        echo '<ol>';
+                        foreach ($value as $answer) {
+                            # code...
+                            echo '<li>' . $answer . '</li>';
+                        };
+                        echo '</ol> </li>';
+                    };
+                    echo $answer;
+                    echo '</ol>';
+                    echo '</li>';
+                };
+            };?>
+        </main>
+
+        <footer>
+        
+        </footer>
+    </body>
+</html>
